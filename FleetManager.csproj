@@ -26,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="FleetManager\Models\" />
     <Folder Include="Pages\Readings\" />
     <Folder Include="Services\" />
   </ItemGroup>

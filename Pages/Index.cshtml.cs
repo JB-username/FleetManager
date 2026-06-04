@@ -16,7 +16,7 @@ using NetVips;
 namespace FleetManager.Pages
 {
     [Authorize]
-    public class IndexModel : PageModel
+    public partial class IndexModel : PageModel
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
