@@ -1,0 +1,39 @@
+﻿@page "{id:int}"
+@model FleetManager.Pages.AdminDashboard.Vehicles.EditModel
+
+<h2>Edit Vehicle</h2>
+
+<form method="post">
+
+    <input type="hidden" asp-for="Vehicle.Id" />
+
+    <div class="mb-3">
+        <label asp-for="Vehicle.RegistrationNumber"></label>
+
+        <input asp-for="Vehicle.RegistrationNumber"
+               class="form-control" />
+    </div>
+
+    <div class="form-check mb-3">
+
+        <input asp-for="Vehicle.IsActive"
+               class="form-check-input" />
+
+        <label asp-for="Vehicle.IsActive"
+               class="form-check-label">
+            Active
+        </label>
+
+    </div>
+
+    <button type="submit"
+            class="btn btn-primary">
+        Save
+    </button>
+
+    <a asp-page="Index"
+           class="btn btn-secondary">
+        Cancel
+    </a>
+
+</form>

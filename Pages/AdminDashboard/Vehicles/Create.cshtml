@@ -1,0 +1,20 @@
+﻿@page
+@model FleetManager.Pages.AdminDashboard.Vehicles.CreateModel
+
+<h2>Add Vehicle</h2>
+
+<form method="post">
+
+    <div class="mb-3">
+        <label asp-for="Vehicle.RegistrationNumber"></label>
+
+        <input asp-for="Vehicle.RegistrationNumber"
+               class="form-control" />
+    </div>
+
+    <button type="submit"
+            class="btn btn-success">
+        Save
+    </button>
+
+</form>

@@ -1,0 +1,51 @@
+@page "{id:int}"
+@model FleetManager.Pages.SuccessModel
+@{
+    ViewData["Title"] = "Success";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6" style="max-width:700px;">
+            <div class="card shadow-sm border-0 rounded-3">
+                <div class="card-body p-4 text-center">
+                    <h2 class="mb-3">Submission Successful</h2>
+                    <p class="lead mb-3">Your odometer reading and photo have been saved.</p>
+
+                    <dl class="row text-start">
+                        <dt class="col-sm-4">Vehicle</dt>
+                        <dd class="col-sm-8">@(!string.IsNullOrEmpty(Model.Reading?.Vehicle?.RegistrationNumber) ? Model.Reading!.Vehicle!.RegistrationNumber : "(unassigned)")</dd>
+
+                        <dt class="col-sm-4">Captured By</dt>
+                        <dd class="col-sm-8">@Model.Reading?.User?.UserName</dd>
+
+                        <dt class="col-sm-4">Reading</dt>
+                        <dd class="col-sm-8">@Model.Reading?.KilometerReading km</dd>
+
+                        <dt class="col-sm-4">Captured At (UTC)</dt>
+                        <dd class="col-sm-8">@Model.Reading?.CapturedAt.ToString("u")</dd>
+                    </dl>
+
+                    @if (!string.IsNullOrEmpty(Model.Reading?.ImagePath))
+                    {
+                        <div class="mb-3">
+                            <p class="small text-muted">Captured photo:</p>
+
+                            <a asp-page="/Files/Serve" asp-route-id="@Model.Reading.Id" target="_blank">
+                                <img src="/images/photo-placeholder.png" class="img-fluid" alt="Odometer photo" />
+                            </a>
+
+                            <p class="small text-muted mt-2">Click the image to open in a new tab (authorized users only).</p>
+                        </div>
+                    }
+
+                    <p>You may now close the app.</p>
+
+                    <div class="d-grid gap-2 mt-4">
+                        <a asp-page="/Index" class="btn btn-primary btn-lg rounded-pill">Return Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

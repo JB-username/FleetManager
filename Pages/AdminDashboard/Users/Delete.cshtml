@@ -1,0 +1,25 @@
+@page
+@model FleetManager.Pages.AdminDashboard.Users.DeleteModel
+@{
+}
+
+<h2>Delete User</h2>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">Email</dt>
+        <dd class="col-sm-10">@Model.ApplicationUser.Email</dd>
+
+        <dt class="col-sm-2">Full Name</dt>
+        <dd class="col-sm-10">@Model.ApplicationUser.FullName</dd>
+
+        <dt class="col-sm-2">Vehicle</dt>
+        <dd class="col-sm-10">@Model.ApplicationUser.Vehicle?.RegistrationNumber</dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="ApplicationUser.Id" />
+        <button type="submit" asp-route-id="@Model.ApplicationUser.Id" class="btn btn-danger">Delete</button>
+        <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

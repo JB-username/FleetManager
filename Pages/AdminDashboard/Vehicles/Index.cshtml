@@ -1,0 +1,39 @@
+﻿@page
+@model FleetManager.Pages.AdminDashboard.Vehicles.IndexModel
+
+<h2 class="mb-5">Vehicles</h2>
+
+<p class="mt-2">
+    <a asp-page="Create" class="btn btn-primary">
+        Add Vehicle
+    </a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Registration</th>
+            <th>Active</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var vehicle in Model.Vehicles)
+        {
+            <tr>
+                <td>@vehicle.RegistrationNumber</td>
+                <td>
+                    @(vehicle.IsActive ? "Active" : "Inactive")
+                </td>
+
+                <td>
+                    <a asp-page="Edit"
+                           asp-route-id="@vehicle.Id">
+                        Edit
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
